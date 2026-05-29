@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "observable preview",
     "build": "observable build",
+    "postbuild": "node scripts/write-nojekyll.mjs",
     "build:roads": "node scripts/build-interstate-from-osm.mjs --no-display",
     "build:roads:display": "node scripts/build-interstate-from-osm.mjs --display-only",
     "clean": "rimraf dist src/.observablehq .observablehq"

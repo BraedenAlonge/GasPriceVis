@@ -44,10 +44,9 @@ CO2 emissions are estimated using 8.887 kg CO2 per gallon of gasoline burned.
 
 ## Deployment
 
-1. Push the project to a public GitHub repository.
-2. Confirm `npm run build` succeeds.
-3. Deploy the generated `dist/` folder to GitHub Pages or another static host.
-4. Update the public repository link in `src/index.md` if your GitHub URL differs from the placeholder.
+**Live site:** https://braedenalonge.github.io/GasPriceVis/
+
+Pushes to `master` trigger [GitHub Actions](.github/workflows/deploy.yml) to build and publish the `dist/` folder to GitHub Pages. You can also run the workflow manually from the repository’s Actions tab.
 
 ## Project Structure
 

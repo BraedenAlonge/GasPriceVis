@@ -162,6 +162,6 @@ CO₂ conversion factor: 8.887 kg CO₂ per gallon gasoline (EPA-style tailpipe 
 
 2.4 Repository
 ----------------
-  Source code and data: https://github.com/thebr/GasPriceVis
+  Source code and data: https://github.com/BraedenAlonge/GasPriceVis
   (Update this URL if your fork or deployment differs.)
 
