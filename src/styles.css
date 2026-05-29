@@ -1,0 +1,640 @@
+:root {
+  --bg-deep: #0f1a24;
+  --bg-mid: #162636;
+  --surface: #1c3044;
+  --surface-light: #243a52;
+  --border: rgba(148, 180, 210, 0.18);
+  --ink: #e8f0f8;
+  --muted: #94aabf;
+  --accent: #4da3ff;
+  --accent-glow: rgba(77, 163, 255, 0.35);
+  --route: #f0c040;
+  --start: #4ade80;
+  --end: #f87171;
+  --current: #fde047;
+}
+
+/* Override Observable theme white card wrapper */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  overflow-x: hidden;
+  max-width: 100%;
+  background: linear-gradient(160deg, var(--bg-deep) 0%, #1a2e3d 45%, #1e3348 100%) !important;
+  color: var(--ink) !important;
+}
+
+main,
+article,
+.observablehq-main,
+.observablehq,
+.observablehq-page,
+.observablehq-center {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+.observablehq .card {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  max-width: 100%;
+}
+
+.hero {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 0.75rem;
+}
+
+.hero h1 {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.hero p {
+  max-width: 680px;
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin: 0.5rem 0;
+}
+
+.hero .eyebrow {
+  color: var(--accent);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0 0 0.3rem;
+}
+
+.repo-link {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* ── App layout ── */
+.drive-map-app {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.25rem 2.5rem;
+  outline: none;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.toolbar {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 0.85rem 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.control-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: flex-end;
+}
+
+.control-actions {
+  margin-top: 0.65rem;
+  align-items: center;
+}
+
+.field {
+  display: grid;
+  gap: 0.25rem;
+  min-width: 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.field-mpg {
+  flex: 0 0 auto;
+  width: 5.5rem;
+}
+
+.field-city-search {
+  flex: 1 1 16rem;
+  min-width: 12rem;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-light);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 500;
+  padding: 0.45rem 0.55rem;
+}
+
+.field-mpg input {
+  padding-inline: 0.45rem;
+  text-align: center;
+}
+
+.click-hint {
+  margin: 0.5rem 0 0.35rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.waypoint-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 0.5rem;
+}
+
+.waypoint-chip {
+  background: var(--surface-light);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--ink);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+}
+
+.primary-btn {
+  border: 0;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #0f1a24;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
+  padding: 0.5rem 1.1rem;
+}
+
+.secondary-btn {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  padding: 0.5rem 0.9rem;
+}
+
+.primary-btn:disabled,
+.secondary-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--accent-glow);
+  outline-offset: 2px;
+}
+
+/* ── Map (hero element) ── */
+.map-stage {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  line-height: 0;
+  cursor: crosshair;
+  width: 100%;
+}
+
+.road-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.us-map {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1100 / 680;
+  max-width: 100%;
+  background: #1a2e42;
+  cursor: crosshair;
+}
+
+.route-layer,
+.marker-layer,
+.exhaust-layer,
+.map-car-layer,
+.city-layer,
+.freeway-layer {
+  pointer-events: none;
+}
+
+.city-dot-layer {
+  pointer-events: all;
+}
+
+.city-dot {
+  pointer-events: all;
+}
+
+.city-dot-hit {
+  fill: transparent;
+  stroke: none;
+  pointer-events: all;
+}
+
+.city-dot-core {
+  fill: rgba(232, 240, 248, 0.85);
+  stroke: rgba(15, 26, 36, 0.55);
+  stroke-width: 1px;
+  pointer-events: none;
+}
+
+.city-dot.is-highlighted .city-dot-core {
+  fill: var(--accent);
+  stroke: #e8f4ff;
+  stroke-width: 1.5px;
+}
+
+.city-dot.is-stop .city-dot-core {
+  fill: var(--route);
+  stroke: #fff8e0;
+}
+
+.city-dot.is-highlighted.is-stop .city-dot-core {
+  fill: var(--start);
+  stroke: #e8f4ff;
+}
+
+.drive-map-app.is-driving .city-dot-layer {
+  pointer-events: none;
+}
+
+.drive-map-app.is-driving .city-dot {
+  cursor: default;
+}
+
+.freeway-line {
+  fill: none;
+  stroke: rgba(148, 180, 210, 0.2);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.freeway-line-interstate {
+  stroke: rgba(148, 180, 210, 0.22);
+  stroke-width: 1.5;
+}
+
+.freeway-line-us {
+  stroke: rgba(148, 180, 210, 0.12);
+  stroke-width: 1.1;
+}
+
+.freeway.is-active-route,
+.freeway-active {
+  fill: none;
+  stroke: rgba(240, 192, 64, 0.55);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.state {
+  stroke: rgba(255, 255, 255, 0.25);
+  stroke-width: 0.6;
+  cursor: pointer;
+}
+
+.state:hover {
+  stroke: rgba(255, 255, 255, 0.55);
+  stroke-width: 1;
+}
+
+.state.is-route {
+  stroke: rgba(255, 255, 255, 0.5);
+  stroke-width: 1.2;
+}
+
+.state.is-start {
+  stroke: var(--start);
+  stroke-width: 2.5;
+}
+
+.state.is-end {
+  stroke: var(--end);
+  stroke-width: 2.5;
+}
+
+.state.is-waypoint {
+  stroke: rgba(240, 192, 64, 0.55);
+  stroke-width: 2;
+}
+
+.state.is-current {
+  stroke: var(--current);
+  stroke-width: 3.5;
+  filter: brightness(1.12) saturate(1.08);
+}
+
+.drive-map-app.is-driving .state {
+  pointer-events: none;
+  cursor: default;
+}
+
+.drive-map-app.is-driving .state:not(.is-current) {
+  filter: brightness(0.88) saturate(0.92);
+}
+
+.drive-map-app.is-driving .state:hover {
+  stroke: rgba(255, 255, 255, 0.25);
+  stroke-width: 0.6;
+}
+
+.drive-map-app.is-driving .state.is-current {
+  stroke: var(--current);
+  stroke-width: 4.5;
+  filter: brightness(1.22) saturate(1.15);
+}
+
+.drive-map-app.is-driving .map-stage {
+  cursor: default;
+}
+
+.route-line-map {
+  fill: none;
+  stroke: var(--route);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.9;
+}
+
+.city-label {
+  fill: rgba(232, 240, 248, 0.72);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+  paint-order: stroke;
+  stroke: rgba(15, 26, 36, 0.65);
+  stroke-width: 2px;
+}
+
+.city-label.is-highlighted {
+  fill: var(--accent);
+  font-size: 10px;
+  stroke: rgba(15, 26, 36, 0.85);
+  stroke-width: 2.5px;
+}
+
+.map-car {
+  will-change: transform;
+}
+
+.waypoint-marker {
+  pointer-events: none;
+}
+
+.waypoint-marker .marker-ring {
+  fill: var(--surface);
+  stroke: var(--route);
+  stroke-width: 2.5;
+}
+
+.waypoint-marker .marker-ring.is-start {
+  stroke: var(--start);
+  stroke-width: 3;
+}
+
+.waypoint-marker .marker-label {
+  fill: var(--ink);
+  font-size: 10px;
+  font-weight: 900;
+  pointer-events: none;
+}
+
+.map-car .car-shadow {
+  fill: rgba(0, 0, 0, 0.25);
+}
+
+.map-car .car-body {
+  fill: #3b9eff;
+  stroke: #e8f4ff;
+  stroke-width: 1.5;
+}
+
+.map-car .car-cabin {
+  fill: #7ec8ff;
+  stroke: #e8f4ff;
+  stroke-width: 1;
+}
+
+.map-car .car-bumper {
+  fill: #e8f4ff;
+}
+
+.map-car .car-wheel {
+  fill: #1a2332;
+  stroke: #cbd5e1;
+  stroke-width: 1.5;
+}
+
+.map-car .car-hub {
+  fill: #94a3b8;
+  stroke: none;
+}
+
+.exhaust {
+  fill: rgba(160, 170, 180, 0.55);
+  pointer-events: none;
+}
+
+/* ── Legend (below map, not overlapping) ── */
+.price-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  padding: 0.65rem 0.25rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.legend-heading {
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.legend-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.legend-chip i {
+  display: inline-block;
+  width: 18px;
+  height: 10px;
+  border-radius: 2px;
+  font-style: normal;
+}
+
+/* ── Stats bar ── */
+.stats-bar,
+.stats-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.stat-chip {
+  flex: 1;
+  min-width: 110px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.55rem 0.75rem;
+}
+
+.chip-label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.15rem;
+}
+
+.chip-value {
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+/* ── Breakdown (synced with animation) ── */
+.breakdown-panel {
+  margin-top: 0.75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.75rem;
+  overflow: hidden;
+}
+
+.breakdown-title {
+  margin: 0 0 0.5rem;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.breakdown-chart {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.breakdown-row .bar-fill {
+  fill: var(--accent);
+}
+
+.breakdown-row text {
+  fill: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.breakdown-row .bar-value {
+  fill: var(--ink);
+}
+
+.chart-axis path,
+.chart-axis line {
+  stroke: var(--border);
+}
+
+.chart-axis text,
+.empty-chart {
+  fill: var(--muted);
+  font-size: 12px;
+}
+
+/* ── Write-up ── */
+.writeup {
+  max-width: 1400px;
+  margin: 1.5rem auto 3rem;
+  padding: 0 1.25rem;
+}
+
+.writeup-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: clamp(1rem, 3vw, 2rem);
+}
+
+.writeup-card h2,
+.writeup-card h3 {
+  color: var(--ink);
+  margin-top: 0;
+}
+
+.writeup-card p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 700px) {
+  .field-city-search {
+    flex: 1 1 100%;
+  }
+
+  .control-actions {
+    flex-wrap: wrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .exhaust {
+    display: none;
+  }
+}

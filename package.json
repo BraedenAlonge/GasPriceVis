@@ -1,0 +1,22 @@
+{
+  "name": "drive-the-cost-across-america",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "observable preview",
+    "build": "observable build",
+    "build:roads": "node scripts/build-interstate-from-osm.mjs --no-display",
+    "build:roads:display": "node scripts/build-interstate-from-osm.mjs --display-only",
+    "clean": "rimraf dist src/.observablehq .observablehq"
+  },
+  "dependencies": {
+    "@observablehq/framework": "latest",
+    "d3": "latest",
+    "topojson-client": "latest",
+    "us-atlas": "latest"
+  },
+  "devDependencies": {
+    "rimraf": "latest"
+  }
+}

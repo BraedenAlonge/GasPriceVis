@@ -1,0 +1,201 @@
+city,state,state_abbr,latitude,longitude,map_label
+New York,New York,NY,40.7128,-74.0060,true
+Los Angeles,California,CA,34.0522,-118.2437,true
+Chicago,Illinois,IL,41.8781,-87.6298,true
+Houston,Texas,TX,29.7604,-95.3698,true
+Phoenix,Arizona,AZ,33.4484,-112.0740,true
+Philadelphia,Pennsylvania,PA,39.9526,-75.1652,true
+San Antonio,Texas,TX,29.4241,-98.4936,true
+San Diego,California,CA,32.7157,-117.1611,true
+Dallas,Texas,TX,32.7767,-96.7970,true
+San Jose,California,CA,37.3382,-121.8863,true
+Austin,Texas,TX,30.2672,-97.7431,true
+Jacksonville,Florida,FL,30.3322,-81.6557,true
+San Francisco,California,CA,37.7749,-122.4194,true
+Columbus,Ohio,OH,39.9612,-82.9988,true
+Fort Worth,Texas,TX,32.7555,-97.3308,false
+Indianapolis,Indiana,IN,39.7684,-86.1581,true
+Charlotte,North Carolina,NC,35.2271,-80.8431,true
+Seattle,Washington,WA,47.6062,-122.3321,true
+Denver,Colorado,CO,39.7392,-104.9903,true
+Washington,District of Columbia,DC,38.9072,-77.0369,true
+Boston,Massachusetts,MA,42.3601,-71.0589,true
+Nashville,Tennessee,TN,36.1627,-86.7816,true
+Detroit,Michigan,MI,42.3314,-83.0458,true
+Portland,Oregon,OR,45.5152,-122.6784,true
+Las Vegas,Nevada,NV,36.1699,-115.1398,true
+Memphis,Tennessee,TN,35.1495,-90.0490,false
+Louisville,Kentucky,KY,38.2527,-85.7585,false
+Baltimore,Maryland,MD,39.2904,-76.6122,true
+Milwaukee,Wisconsin,WI,43.0389,-87.9065,true
+Albuquerque,New Mexico,NM,35.0844,-106.6504,true
+Tucson,Arizona,AZ,32.2226,-110.9747,false
+Fresno,California,CA,36.7378,-119.7871,false
+Sacramento,California,CA,38.5816,-121.4944,true
+Atlanta,Georgia,GA,33.7490,-84.3880,true
+Miami,Florida,FL,25.7617,-80.1918,true
+Kansas City,Missouri,MO,39.0997,-94.5786,true
+Omaha,Nebraska,NE,41.2565,-95.9345,false
+Minneapolis,Minnesota,MN,44.9778,-93.2650,true
+Cleveland,Ohio,OH,41.4993,-81.6944,true
+New Orleans,Louisiana,LA,29.9511,-90.0715,true
+St. Louis,Missouri,MO,38.6270,-90.1994,true
+Pittsburgh,Pennsylvania,PA,40.4406,-79.9959,true
+Cincinnati,Ohio,OH,39.1031,-84.5120,false
+Salt Lake City,Utah,UT,40.7608,-111.8910,true
+Raleigh,North Carolina,NC,35.7796,-78.6382,false
+Buffalo,New York,NY,42.8864,-78.8784,false
+Richmond,Virginia,VA,37.5407,-77.4360,false
+Boise,Idaho,ID,43.6150,-116.2023,false
+Birmingham,Alabama,AL,33.5186,-86.8104,false
+Des Moines,Iowa,IA,41.5868,-93.6250,false
+Little Rock,Arkansas,AR,34.7465,-92.2896,false
+Charleston,South Carolina,SC,32.7765,-79.9311,false
+Savannah,Georgia,GA,32.0809,-81.0912,false
+Tampa,Florida,FL,27.9506,-82.4572,true
+Orlando,Florida,FL,28.5383,-81.3792,true
+Honolulu,Hawaii,HI,21.3069,-157.8583,false
+Anchorage,Alaska,AK,61.2181,-149.9003,false
+Oklahoma City,Oklahoma,OK,35.4676,-97.5164,false
+Tulsa,Oklahoma,OK,36.1540,-95.9928,false
+El Paso,Texas,TX,31.7619,-106.4850,false
+Reno,Nevada,NV,39.5296,-119.8138,false
+Madison,Wisconsin,WI,43.0731,-89.4012,false
+Grand Rapids,Michigan,MI,42.9634,-85.6681,false
+Spokane,Washington,WA,47.6588,-117.4260,false
+Tacoma,Washington,WA,47.2529,-122.4443,false
+Colorado Springs,Colorado,CO,38.8339,-104.8214,false
+Scottsdale,Arizona,AZ,33.4942,-111.9261,false
+Santa Fe,New Mexico,NM,35.6870,-105.9378,false
+Santa Barbara,California,CA,34.4208,-119.6982,false
+Palm Springs,California,CA,33.8303,-116.5453,false
+Monterey,California,CA,36.6002,-121.8947,false
+Asheville,North Carolina,NC,35.5951,-82.5515,false
+Key West,Florida,FL,24.5551,-81.7800,false
+Myrtle Beach,South Carolina,SC,33.6891,-78.8867,false
+Billings,Montana,MT,45.7833,-108.5007,false
+Cheyenne,Wyoming,WY,41.1400,-104.8202,false
+Fargo,North Dakota,ND,46.8772,-96.7898,false
+Sioux Falls,South Dakota,SD,43.5460,-96.7313,false
+Burlington,Vermont,VT,44.4759,-73.2121,false
+Portland,Maine,ME,43.6591,-70.2568,false
+Manchester,New Hampshire,NH,42.9956,-71.4548,false
+Providence,Rhode Island,RI,41.8240,-71.4128,false
+Hartford,Connecticut,CT,41.7658,-72.6734,false
+Wilmington,Delaware,DE,39.7391,-75.5398,false
+Montgomery,Alabama,AL,32.3792,-86.3077,false
+Mobile,Alabama,AL,30.6954,-88.0399,false
+Huntsville,Alabama,AL,34.7304,-86.5861,false
+Fayetteville,Arkansas,AR,36.0822,-94.1719,false
+Fort Smith,Arkansas,AR,35.3859,-94.3985,false
+Jonesboro,Arkansas,AR,35.8423,-90.7043,false
+Aurora,Colorado,CO,39.7294,-104.8319,false
+Boulder,Colorado,CO,40.0150,-105.2705,false
+New Haven,Connecticut,CT,41.3083,-72.9279,false
+Stamford,Connecticut,CT,41.0534,-73.5387,false
+Bridgeport,Connecticut,CT,41.1792,-73.1894,false
+Dover,Delaware,DE,39.1582,-75.5244,false
+Rehoboth Beach,Delaware,DE,38.7209,-75.0760,false
+Augusta,Georgia,GA,33.4735,-82.0105,false
+Macon,Georgia,GA,32.8407,-83.6324,false
+Columbus,Georgia,GA,32.4610,-84.9877,false
+Cedar Rapids,Iowa,IA,41.9779,-91.6656,false
+Davenport,Iowa,IA,41.5236,-90.5776,false
+Sioux City,Iowa,IA,42.4990,-96.4003,false
+Idaho Falls,Idaho,ID,43.4917,-112.0339,false
+Nampa,Idaho,ID,43.5407,-116.5635,false
+Pocatello,Idaho,ID,42.8713,-112.4455,false
+Springfield,Illinois,IL,39.7817,-89.6501,false
+Peoria,Illinois,IL,40.6936,-89.5890,false
+Rockford,Illinois,IL,42.2711,-89.0940,false
+Fort Wayne,Indiana,IN,41.0793,-85.1394,false
+Evansville,Indiana,IN,37.9716,-87.5711,false
+South Bend,Indiana,IN,41.6764,-86.2520,false
+Wichita,Kansas,KS,37.6872,-97.3301,false
+Topeka,Kansas,KS,39.0473,-95.6752,false
+Overland Park,Kansas,KS,38.9822,-94.6708,false
+Lexington,Kentucky,KY,38.0406,-84.5037,false
+Bowling Green,Kentucky,KY,36.9685,-86.4808,false
+Owensboro,Kentucky,KY,37.7719,-87.1112,false
+Baton Rouge,Louisiana,LA,30.4515,-91.1871,false
+Shreveport,Louisiana,LA,32.5252,-93.7502,false
+Lafayette,Louisiana,LA,30.2241,-92.0198,false
+Bangor,Maine,ME,44.8016,-68.7712,false
+Lewiston,Maine,ME,44.1004,-70.2148,false
+Augusta,Maine,ME,44.3106,-69.7795,false
+Annapolis,Maryland,MD,38.9784,-76.4922,false
+Frederick,Maryland,MD,39.4143,-77.4105,false
+Rockville,Maryland,MD,39.0840,-77.1528,false
+Worcester,Massachusetts,MA,42.2626,-71.8023,false
+Springfield,Massachusetts,MA,42.1015,-72.5898,false
+Cambridge,Massachusetts,MA,42.3736,-71.1097,false
+Lansing,Michigan,MI,42.7325,-84.5555,false
+Ann Arbor,Michigan,MI,42.2808,-83.7430,false
+Flint,Michigan,MI,43.0125,-83.6875,false
+St. Paul,Minnesota,MN,44.9537,-93.0900,false
+Duluth,Minnesota,MN,46.7867,-92.1005,false
+Rochester,Minnesota,MN,44.0121,-92.4802,false
+Jackson,Mississippi,MS,32.2988,-90.1848,false
+Gulfport,Mississippi,MS,30.3674,-89.0928,false
+Hattiesburg,Mississippi,MS,31.3271,-89.2903,false
+Springfield,Missouri,MO,37.2090,-93.2923,false
+Columbia,Missouri,MO,38.9517,-92.3341,false
+Jefferson City,Missouri,MO,38.5767,-92.1735,false
+Missoula,Montana,MT,46.8721,-113.9940,false
+Great Falls,Montana,MT,47.5053,-111.3008,false
+Bozeman,Montana,MT,45.6770,-111.0429,false
+Lincoln,Nebraska,NE,40.8136,-96.7026,false
+Grand Island,Nebraska,NE,40.9264,-98.3420,false
+Kearney,Nebraska,NE,40.6993,-99.0817,false
+Newark,New Jersey,NJ,40.7357,-74.1724,false
+Jersey City,New Jersey,NJ,40.7178,-74.0431,false
+Trenton,New Jersey,NJ,40.2206,-74.7597,false
+Las Cruces,New Mexico,NM,32.3199,-106.7637,false
+Roswell,New Mexico,NM,33.3943,-104.5230,false
+Rochester,New York,NY,43.1566,-77.6088,false
+Syracuse,New York,NY,43.0481,-76.1474,false
+Albany,New York,NY,42.6526,-73.7562,false
+Eugene,Oregon,OR,44.0521,-123.0868,false
+Salem,Oregon,OR,44.9429,-123.0351,false
+Bend,Oregon,OR,44.0582,-121.3153,false
+Harrisburg,Pennsylvania,PA,40.2732,-76.8867,false
+Allentown,Pennsylvania,PA,40.6084,-75.4902,false
+Erie,Pennsylvania,PA,42.1292,-80.0851,false
+Warwick,Rhode Island,RI,41.7001,-71.4162,false
+Cranston,Rhode Island,RI,41.7798,-71.4373,false
+Newport,Rhode Island,RI,41.4901,-71.3128,false
+Columbia,South Carolina,SC,34.0007,-81.0348,false
+Greenville,South Carolina,SC,34.8526,-82.3940,false
+Rapid City,South Dakota,SD,44.0805,-103.2310,false
+Aberdeen,South Dakota,SD,45.4647,-98.4865,false
+Pierre,South Dakota,SD,44.3683,-100.3510,false
+Knoxville,Tennessee,TN,35.9606,-83.9207,false
+Chattanooga,Tennessee,TN,35.0456,-85.3097,false
+Provo,Utah,UT,40.2338,-111.6585,false
+Ogden,Utah,UT,41.2230,-111.9738,false
+St. George,Utah,UT,37.0965,-113.5684,false
+Montpelier,Vermont,VT,44.2601,-72.5754,false
+Rutland,Vermont,VT,43.6106,-72.9726,false
+Brattleboro,Vermont,VT,42.8509,-72.5579,false
+Virginia Beach,Virginia,VA,36.8529,-75.9780,false
+Norfolk,Virginia,VA,36.8508,-76.2859,false
+Roanoke,Virginia,VA,37.2710,-79.9414,false
+Charleston,West Virginia,WV,38.3498,-81.6326,false
+Huntington,West Virginia,WV,38.4192,-82.4452,false
+Morgantown,West Virginia,WV,39.6295,-79.9559,false
+Green Bay,Wisconsin,WI,44.5133,-88.0133,false
+Appleton,Wisconsin,WI,44.2619,-88.4154,false
+Casper,Wyoming,WY,42.8666,-106.3131,false
+Laramie,Wyoming,WY,41.3114,-105.5911,false
+Rock Springs,Wyoming,WY,41.5875,-109.2029,false
+Henderson,Nevada,NV,36.0395,-114.9817,false
+Concord,New Hampshire,NH,43.2081,-71.5376,false
+Portsmouth,New Hampshire,NH,43.0718,-70.7626,false
+Keene,New Hampshire,NH,42.9337,-72.2781,false
+Norman,Oklahoma,OK,35.2226,-97.4395,false
+Broken Arrow,Oklahoma,OK,36.0609,-95.7975,false
+Bismarck,North Dakota,ND,46.8083,-100.7837,false
+Grand Forks,North Dakota,ND,47.9253,-97.0329,false
+Minot,North Dakota,ND,48.2330,-101.2963,false
+Alexandria,Virginia,VA,38.8048,-77.0469,false
+Arlington,Virginia,VA,38.8816,-77.0910,false
