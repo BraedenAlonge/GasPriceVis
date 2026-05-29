@@ -1,168 +1,115 @@
-Drive the Cost Across America — Design Write-Up
-CSC 477 Interactive Visualization with D3
-
-Location: DESIGN_WRITEUP.txt in the repository root (GasPriceVis/).
-Deployed site: https://braedenalonge.github.io/GasPriceVis/
-The same content also appears in abbreviated form on the project webpage (src/index.md, “Design Rationale” and “Data” sections).
-
-
-================================================================================
-1. DESIGN RATIONALE
-================================================================================
-
-1.1 Problem and audience
-------------------------
-The visualization answers: “If I drive this route in the U.S., how do state-level gas prices and my vehicle’s MPG affect fuel cost and tailpipe CO₂?” The primary audience is students and general users exploring regional price variation on a familiar geographic layout—not professional route planners. The design therefore favors clarity and comparison over navigation accuracy.
-
-
-1.2 Visual encodings
---------------------
+Question
+The visualization answers: “If I drive this route in the U.S., how do state-level gas prices and my vehicle’s MPG affect fuel cost and tailpipe CO₂?” The primary audience is travelers and general users looking to guesstimate a state-to-state trip with one or more stops. The design therefore favors clarity and comparison over navigation accuracy.
 
 Choropleth map (state fill color)
-  Encoding: Sequential color scale (blue → orange → red) maps each state’s regular gasoline price ($/gal) from the AAA snapshot.
-  Rationale: Gas price is inherently geographic at the state level in our data. A choropleth lets users see expensive vs. inexpensive regions before building a route.
-  Alternatives considered: (a) Symbol maps (circles sized by price at centroids)—rejected because circles overlap in the Northeast and obscure boundaries. (b) A separate sorted bar chart of all states—useful but disconnected from route context; we kept state-level bars only for states actually driven through (see below).
-
-Route line (gold stroke on the map)
+  Encoding: Sequential color scale (blue, orange, red) maps each state’s regular gasoline price ($/gal) from the AAA snapshot.
+  Rationale: Gas price is inherently geographic at the state level in our data. A choropleth lets users see expensive vs. inexpensive regions before building a route for a road trip.
+  Alternatives considered: (a) Symbol maps (circles sized by price at centroids): rejected because circles overlap in the Northeast and obscure boundaries. (b) A separate sorted bar chart of all states: useful but cannot “travel” and not very interactive
+Route line (gold lines on the map)
   Encoding: Polyline along routed highway geometry (or straight segments when the network is unavailable).
-  Rationale: Shows the actual path used for mileage and state assignment, linking the abstract cost model to geography.
-  Alternatives: Straight chords between stops—simpler but misleading for long trips; rejected except as a loading/fallback mode.
-
+  Rationale: Shows the actual path used for mileage and state assignment, linking the cost model to geography.
+  Alternatives considered: Straight chords between stops: simpler but misleading for long trips; rejected except as a loading/fallback mode.
 Numbered waypoint markers
   Encoding: Circles with stop index; first stop uses a distinct “start” color (green stroke).
-  Rationale: Supports multi-stop trips and reading order without a separate list-only UI (the chip list in the toolbar reinforces this).
-
+  Rationale: Supports multi-stop trips and reading order without a separate list-only UI.
 City labels and dots
-  Encoding: Text labels for major cities (subset of catalog); small dots for labeled cities plus cities revealed via search. Selecting a city from search or clicking its dot highlights the dot (larger, accent color) and the map label; dots also show when a city is already a stop.
+  Encoding: Text labels for major cities (subset of catalog); small dots for labeled cities plus cities revealed via search; highlighted/“on route” styling when selected or used as a stop.
   Rationale: Labels anchor place names to geography; dots give precise click targets without cluttering the map with labels for every searchable city.
-  Alternatives: Label every city in the search list—rejected as unreadable; show no labels—rejected as harder to orient users.
-
-Interstate background (canvas layer)
-  Encoding: Low-contrast road linework under the choropleth.
-  Rationale: Reinforces that routing follows highways without competing with price color or the gold route.
-
+  Alternatives: Label every city in the search list:rejected as unreadable; show no labels:rejected as harder to orient users.
+Interstate background
+  Encoding: Low contrast road linework under the choropleth.
+  Rationale: Reinforces that routing follows highways without competing with the map color or the gold route.
 Animated car and exhaust puffs
-  Encoding: SVG car glyph moves along the route; optional CO₂-themed particles behind the car.
+  Encoding: SVG car glyph moves along the route; CO₂-themed particles behind the car.
   Rationale: Makes “travel through states” tangible and ties the stats panel’s “current state” to motion.
-  Alternatives: Jumping marker with no animation—less engaging; full video-style map—out of scope. We respect prefers-reduced-motion by completing the trip instantly with no animation.
-
-Stats bar (chips)
-  Encoding: Text chips for route summary, current state, current gas price, miles, gallons, cost, and CO₂.
+  Alternatives: Jumping marker with no animation: less engaging; full video-style map:out of scope. I tackle prefers-reduced-motion by allowing the trip to be instantly completed with no animation.
+Stats bar
+  Encoding: Text boxes for route summary, current state, current gas price, miles, gallons, cost, and CO₂.
   Rationale: Exact numbers for accessibility and for users who do not infer quantities from color alone.
-
 Cost breakdown (horizontal bar chart)
   Encoding: One bar per state traversed, length proportional to fuel cost in that state; fills progressively during Drive.
   Rationale: Compares which states dominate trip cost; complements the map’s spatial view with a readable ranking.
-  Alternatives: Stacked area over distance—more precise but harder for novices; pie chart—discouraged for part-to-whole across many states.
-
+  Alternatives: Stacked area over distance: more precise but harder for novices; pie chart: discouraged for part-to-whole across many states.
 Price legend
   Encoding: Discrete color bins with dollar ranges below the map.
   Rationale: Decodes the choropleth without relying on tooltips alone.
 
-
-1.3 Interaction techniques
-----------------------------
-
+Interaction techniques
 City search (datalist + Enter)
   Users type a city name, pick from suggestions, and add a stop. Non–map-label cities gain a dot when selected from search.
   Rationale: Faster than hunting pixels for known cities; supports the expanded city list without visual clutter.
-
 Map click
   Clicking a state adds a stop at the clicked coordinates (state inferred from polygon).
   Rationale: Supports arbitrary points and users who think spatially; pairs with search for named places.
-
 Multi-stop route building
   Stops are ordered; Undo removes the last stop; Clear removes all. Duplicate locations are allowed (e.g., round trips).
   Rationale: Matches real trip planning; duplicate prevention was removed after user feedback.
-
 MPG control
   Numeric input updates cost and CO₂ calculations live.
   Rationale: MPG is the main user-controlled variable besides route choice.
-
 Drive / Skip animation / Pause / Reset
   Drive runs a time-scaled animation along the route; the primary button becomes “Skip animation” during the run; Pause stops early; Reset clears progress.
-  Rationale: Animation teaches the link between motion and changing state prices; skip supports impatient users and demos.
-
+  Rationale: Animation teaches the link between motion and changing state prices; skip supports impatient users and people who want to find information quickly without having to watch the animation every time. Pause allows users to see the current cost at any given moment (and mileage, etc.).
 State highlighting during and after routing
-  Classes mark states on the route, start/end states, and waypoint states. During Drive, the state the car is in is brightened (yellow border, higher brightness) while other states are slightly dimmed so progress is easy to follow.
-  Rationale: Links the choropleth to the narrative of the trip without extra panels.
-
+  Classes mark states on the route, start/end states, waypoint states, and (while driving) the current state.
+  Rationale: Links the choropleth to the timing of the trip without extra panels.
 Accessibility
   Labeled inputs, button-based controls (not map-only), SVG aria-labels where appropriate, keyboard submission for city search, and reduced-motion support.
 
+Routes and costs modeling
 
-1.4 How routes and costs are modeled (design consequences)
-----------------------------------------------------------
-Routes prefer shortest path on a preprocessed NTAD National Highway System graph (Dijkstra’s algorithm), with short same-state legs as straight lines and straight-line fallbacks before the graph loads or when routing fails. Miles are split by state polygon intersection so each segment uses that state’s AAA average price. This is an intentional simplification for teaching and comparison—not a substitute for Google Maps or live pump prices.
+Routes prefer shortest path on a preprocessed NTAD National Highway System graph (Dijkstra’s algorithm), with short same-state legs as straight lines and straight-line fallbacks before the graph loads or when routing fails. Miles are split by state polygon intersection so each segment uses that state’s AAA average price. This is an intentional simplification for teaching and comparison, not a substitute for Google Maps or live pump prices.
 
+Alternatives at the application level
 
-1.5 Alternatives at the application level
------------------------------------------
-  • Start/end state pickers only (no map)—rejected; loses spatial reasoning and multi-stop flexibility.
-  • Table-only or chart-only dashboard—rejected; the assignment emphasis is geographic visualization with D3.
-  • Live AAA API—rejected for static hosting, reproducibility, and assignment grading; snapshot CSV dated May 27, 2026.
-  • Full OSM routing in the browser—rejected due to graph size and complexity; NTAD NHS preprocessing balances realism and performance.
+  • Start/end state pickers only (no map):rejected; loses spatial reasoning and flexibility of having multiple stops.
+  • Table-only or chart-only dashboard: rejected; the assignment emphasis is geographic visualization with D3, and that is not very interactive (and it is boring).
+  • Live AAA API: rejected for static hosting, reproducibility, and assignment grading; snapshot CSV dated May 27, 2026.
+  • Full OSM routing in the browser: rejected due to graph size and complexity; NTAD NHS preprocessing balances realism and performance. This was attempted but caused the website to lag very badly.
 
 
-================================================================================
-2. REFERENCES TO EXTERNAL RESOURCES
-================================================================================
+REFERENCES TO EXTERNAL RESOURCES
 
-2.1 Data sources
-----------------
-Each file lives in src/data/ unless noted.
 
+Data sources (in src/data/)
 state-gas-prices.csv
   AAA regular gasoline state averages, snapshot May 27, 2026.
   https://gasprices.aaa.com/
   https://gasprices.aaa.com/state-gas-price-averages/
-
 us-states.geojson
   U.S. state boundaries (lower 48 + DC), derived from U.S. Census cartographic boundaries via topojson/us-atlas.
   https://www.census.gov/geographies/mapping-files/time-series/geo/carto-boundary-file.html
   https://github.com/topojson/us-atlas
-
 state-centroids.csv
   Geographic centroids per state, derived from the same polygons as us-states.geojson (us-atlas).
-
 us-cities.csv
   Project-maintained list of major U.S. cities for search and map labels; coordinates aligned with public gazetteers.
   https://www.geonames.org/
   https://www.census.gov/geographies/reference-files/time-series/geo/gazetteer-files.html
-
 interstate-network.json
   Routable graph built from the NTAD National Highway System (interstate and U.S. routes), preprocessed by scripts/build-interstate-from-osm.mjs.
   https://www.bts.gov/ntad
   https://services.arcgis.com/xOi1kZaI0eWDREZv/arcgis/rest/services/NTAD_National_Highway_System/FeatureServer/0
   NHS data dictionary: https://doi.org/10.21949/1529838
-
 interstate-lines.geojson
   Simplified linework for map display; same NTAD NHS source as above.
 
-
-2.2 Software libraries and tools
---------------------------------
-  • D3.js (v7)—map projection, path generation, scales, transitions, bar chart, animation easing.
+Software libraries and tools
+  • D3.js (v7): map projection, path generation, scales, transitions, bar chart, animation easing.
     https://d3js.org/
-  • Observable Framework—project structure, bundling, and local preview/deploy.
+  • Observable Framework: project structure, bundling, and local preview/deploy.
     https://observablehq.com/framework/
-  • topojson/us-atlas (npm package)—source topology for state boundaries.
+  • topojson/us-atlas (npm package): source topology for state boundaries.
     https://github.com/topojson/us-atlas
   • U.S. Census Bureau cartographic boundary products (via us-atlas redistribution).
 
-CO₂ conversion factor: 8.887 kg CO₂ per gallon gasoline (EPA-style tailpipe estimate, cited in course materials and standard references for gasoline combustion).
+Existing work and adaptations
 
-
-2.3 Existing work and adaptations
------------------------------------
   • Choropleth U.S. maps and Albers USA projections are standard D3/mbostock and Observable examples; this project extends that pattern with custom routing and trip simulation rather than inventing a new map technique.
-  • Shortest-path routing on a road graph follows classical Dijkstra’s algorithm on a static adjacency structure built from NTAD geometry—common in GIS and transportation analysis, implemented here in FreewayRouter.js for the browser.
-  • The NTAD NHS layer is federal open data; our contribution is preprocessing it into interstate-network.json and interstate-lines.geojson for client-side use, plus integrating it with AAA price data and interactive D3 views.
-  • UI patterns (searchable city list, drive animation) were designed for this CSC 477 project; they are not ported from a published visualization paper.
+  • Shortest-path routing on a road graph follows Dijkstra’s algorithm on a static adjacency structure built from NTAD geometry, which is common in GIS and transportation analysis, implemented here in FreewayRouter.js for the browser.
+  • The NTAD NHS layer is federal open data. My contribution is preprocessing it into interstate-network.json and interstate-lines.geojson for client-side use, plus integrating it with AAA price data and D3 interactivity.
 
-
-2.4 Repository
-----------------
-  Source code and data: https://github.com/BraedenAlonge/GasPriceVis
-  Live demo: https://braedenalonge.github.io/GasPriceVis/
-
+Repository
+ https://github.com/BraedenAlonge/GasPriceVis
+  
+ 
