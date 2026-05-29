@@ -33,7 +33,7 @@ Numbered waypoint markers
   Rationale: Supports multi-stop trips and reading order without a separate list-only UI (the chip list in the toolbar reinforces this).
 
 City labels and dots
-  Encoding: Text labels for major cities (subset of catalog); small dots for labeled cities plus cities revealed via search; highlighted/“on route” styling when selected or used as a stop.
+  Encoding: Text labels for major cities (subset of catalog); small dots for labeled cities plus cities revealed via search. Selecting a city from search or clicking its dot highlights the dot (larger, accent color) and the map label; dots also show when a city is already a stop.
   Rationale: Labels anchor place names to geography; dots give precise click targets without cluttering the map with labels for every searchable city.
   Alternatives: Label every city in the search list—rejected as unreadable; show no labels—rejected as harder to orient users.
 
@@ -84,7 +84,7 @@ Drive / Skip animation / Pause / Reset
   Rationale: Animation teaches the link between motion and changing state prices; skip supports impatient users and demos.
 
 State highlighting during and after routing
-  Classes mark states on the route, start/end states, waypoint states, and (while driving) the current state.
+  Classes mark states on the route, start/end states, and waypoint states. During Drive, the state the car is in is brightened (yellow border, higher brightness) while other states are slightly dimmed so progress is easy to follow.
   Rationale: Links the choropleth to the narrative of the trip without extra panels.
 
 Accessibility
@@ -164,5 +164,5 @@ CO₂ conversion factor: 8.887 kg CO₂ per gallon gasoline (EPA-style tailpipe 
 2.4 Repository
 ----------------
   Source code and data: https://github.com/BraedenAlonge/GasPriceVis
-  (Update this URL if your fork or deployment differs.)
+  Live demo: https://braedenalonge.github.io/GasPriceVis/
 
