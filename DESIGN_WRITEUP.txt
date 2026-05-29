@@ -2,7 +2,8 @@ Drive the Cost Across America — Design Write-Up
 CSC 477 Interactive Visualization with D3
 
 Location: DESIGN_WRITEUP.txt in the repository root (GasPriceVis/).
-Deployed site: see README.md for the live URL; the same content also appears in abbreviated form on the project webpage (src/index.md, “Design Rationale” and “Data” sections).
+Deployed site: https://braedenalonge.github.io/GasPriceVis/
+The same content also appears in abbreviated form on the project webpage (src/index.md, “Design Rationale” and “Data” sections).
 
 
 ================================================================================
