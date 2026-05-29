@@ -10,8 +10,6 @@ toc: false
   <h1>Drive the Cost Across America</h1>
   <p>Explore how route choice, state gas prices, and vehicle MPG shape the cost and tailpipe CO2 emissions of a road trip.</p>
   <a class="repo-link" href="https://github.com/BraedenAlonge/GasPriceVis">Public GitHub repository</a>
-  ·
-  <a class="repo-link" href="https://braedenalonge.github.io/GasPriceVis/">Live demo</a>
 </section>
 
 ```js
